@@ -1,0 +1,13 @@
+/* CSS Document */
+
+body { 
+	background-color:#000;
+	color:#fff;
+}
+
+#wrapper {
+	padding-top:10px;
+	padding-bottom:10px;
+	width:1000px;
+	margin:auto;		
+}
