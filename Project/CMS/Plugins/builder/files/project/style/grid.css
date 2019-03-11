@@ -1,0 +1,95 @@
+#page {
+	min-height: 100px !important;
+	border: 3px dotted #cccccc !important;
+	padding-top: 15px !important;
+	padding-bottom: 15px !important;
+}
+
+.col {
+	min-height: 100px !important;
+	border: 1px dotted #555555 !important;
+	padding-top: 15px !important;
+	padding-bottom: 15px !important;
+}
+
+section {
+	margin: 20px !important;
+	min-height: 100px !important;
+	border: 1px dotted #ff0000 !important;
+	padding: 15px !important;
+	position:relative !important;
+}
+
+.container,
+.container-fluid {
+	min-height: 100px !important;
+	border: 1px dotted #0066FF !important;
+	padding: 15px !important;
+	position:relative !important;
+}
+
+.row,
+.row-fluid {
+	min-height: 130px !important;
+	border-top: 1px dotted #009900 !important;
+	border-bottom: 1px dotted #009900 !important;
+	padding: 15px !important;
+	margin-bottom: 10px !important;
+	margin-top: 10px !important;
+	position: relative !important;
+}
+
+.row:before,
+.row-fluid:before,
+section:before,
+.container:before,
+.container-fluid:before {
+	position: absolute !important;
+	top: 0px !important;
+	left: 0px !important;
+	content: '' !important;
+	width: 0 !important; 
+	height: 0 !important; 
+	border-left: 5px solid transparent !important;
+	border-right: 5px solid transparent !important;
+	border-top: 5px solid transparent !important;
+}
+
+.row:before,
+.row-fluid:before {
+	border-top: 5px solid #009900 !important;
+}
+
+
+section:before {
+	border-top: 5px solid #ff0000 !important;
+}
+
+.container:before,
+.container-fluid:before {
+	border-top: 5px solid #0066FF !important;
+}
+
+
+.delete-item {
+	position: absolute !important;
+	color: #ff0000 !important;
+	z-index: 9999 !important;
+	top: -1px !important;
+	right: -1px !important;
+	width:100px !important;
+	font-size: 11px !important;
+	font-style:italic !important;
+	display:block !important;
+	text-align:center !important;
+	z-index:9 !important;	
+	padding: 3px !important;
+	background: #ffffff !important;
+	border: 1px dotted #ff0000 !important;
+	cursor: pointer !important;
+}
+
+.widget-block {
+	position: relative !important;
+	border-top: 20px solid #666666 !important;
+}

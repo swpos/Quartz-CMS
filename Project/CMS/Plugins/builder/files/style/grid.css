@@ -1,0 +1,65 @@
+table.option tr td {
+	padding: 10px;
+}
+
+.well {
+}
+
+a.settings {
+	display:block;
+	clear:both;
+	border-bottom: none;
+	font-size:12px !important;
+	font-style:italic;
+	cursor: pointer;
+}
+
+.modal-backdrop {
+	z-index:9990;
+}
+
+.settings {
+	top: -35px;
+}
+
+.tool-tip  {
+    display:none;
+	color:#ffffff;
+	padding: 10px;
+	background:rgba(0,0,0,0.7);
+}
+
+.widgets .widget-block {
+	display:inline-block;
+	background: #999999;
+	height: 50px;
+	width: 50px;
+	color: #ffffff;
+	padding: 10px;
+}
+
+.widgets .widget-block *{
+	display:none;
+}
+
+.widgets .custom {
+	display: inline-block;
+	text-align: center;
+	padding: 5px;
+	margin: 5px;
+	background-color:#eeeeee;
+	border-radius:10px;
+	border: 1px solid #dddddd;
+	max-width:100px;
+	width: 100%;
+	min-height:100px;
+}
+
+.widgets .custom h3,
+.widgets .custom h2,
+.widgets .custom h1 {
+	font-size: 11px;
+	margin: 0px;
+	margin-bottom:10px;
+	font-style: italic;
+}

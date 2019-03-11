@@ -1,0 +1,21 @@
+{
+    "authors": [
+        {
+            "name": "Alexandre Lefebvre",
+            "email": "alexandre.lefebvre7@outlook.com",
+            "homepage": "https://www.quartzcms.ca",
+            "role": "Developer"
+        }
+    ],
+    
+    "require": {
+		"doctrine/dbal": "2.5.1"
+    },
+    
+    "autoload": {
+        "psr-0": {
+            "CMS": "Project/"
+        }
+    }
+}
+

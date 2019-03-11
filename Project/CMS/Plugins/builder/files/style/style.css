@@ -1,0 +1,126 @@
+body * {
+	box-shadow: none !important;
+}
+
+iframe.content {
+	overflow-y: scroll;
+	height: 750px;
+}
+
+.nav-tabs > li > a {
+    border: 1px solid #cccccc;
+}
+
+.nav-tabs > li > a:focus, 
+.nav-tabs > li > a:hover {
+	border: 1px solid #aaaaaa;
+}
+
+ul.rightclickmenu,
+ul.rightclickmenu2 {
+	list-style-type: none;
+	width: 150px;
+	padding-left: 0px;
+	z-index: 9999;
+}
+
+ul.rightclickmenu li,
+ul.rightclickmenu2 li {
+	border-top: 1px solid #cccccc;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	background-color: #ededed;
+	padding: 0px 5px;
+	margin-top: 0px;
+}
+
+ul.rightclickmenu li a,
+ul.rightclickmenu2 li a {
+	display: block;
+	width: 100%;
+}
+
+ul.rightclickmenu li:last-child,
+ul.rightclickmenu2 li:last-child {
+	border-bottom: 1px solid #cccccc;
+}
+
+.modal-dialog {
+	width: 100%;
+	max-width: 1000px;
+}
+
+.modal-body {
+	min-height: 600px;
+	overflow: hidden;
+}
+
+.modal-dialog form {
+	width: 100%;
+}
+
+.modal-dialog form textarea {
+	width: 100%;
+	min-height: 400px;
+}
+
+/*MENU SLIDE*/
+
+.overlay {
+	display:none;
+	position: fixed;
+	z-index: 99999;
+	left: 0px;
+	top: 0px;
+	height: 130%;
+	width: 100%;
+	background-color: rgba(0,0,0,0.4);
+}
+
+.slide-menu {
+	background-color: #1D1F20;
+	background-image: linear-gradient(145deg, #1D1F20, #404348);
+}
+
+.slide-menu ul {
+	list-style-type:none; 
+	margin: 0px;
+	padding: 0px; 
+}
+
+.slide-menu header,
+.slide-menu h3,
+.slide-menu ul li {
+	padding: 5px 15px;
+}
+
+.slide-menu a,
+.slide-menu h3,
+.slide-menu span {
+	color: #cccccc;
+}
+
+.slide-menu {
+	position: fixed;
+	left: -256px;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 999999;
+	overflow-y: auto;
+	width: 256px;
+}
+
+.widgets ul li {
+	margin-top: 0px;
+}
+
+.modal input,
+.modal select,
+.modal button {
+	margin:0px;
+}
+
+.modal table tr td {
+	padding: 4px;
+}

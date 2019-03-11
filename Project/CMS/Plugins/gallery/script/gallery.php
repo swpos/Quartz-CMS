@@ -1,0 +1,1 @@
+<script src="/Plugins/gallery/files/popup.js" type="text/javascript"></script>

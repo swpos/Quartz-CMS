@@ -1,0 +1,266 @@
+body {
+	background: #efefef url('images/noise.png') repeat;
+	overflow-y: scroll;
+	
+	.container {
+		border-radius:10px;
+		margin-top:10px;
+		margin-bottom:10px;
+	}
+
+	.aside {
+		height: 100%;
+		display:block;
+	}
+	
+	ul {
+		list-style-type: none;
+		padding:0px;
+	}
+	
+	h3 {
+		margin:0px;
+		padding:0px;
+		padding-bottom:5px;
+		padding-top:5px;
+	}
+	
+	h2 {
+		margin:0px;
+		padding:0px;
+		padding-bottom:5px;
+		padding-top:15px;
+	}
+	
+	h1 {
+		margin:0px;
+		padding:0px;
+		padding-bottom:5px;
+		padding-top:20px;
+	}
+
+	.box-logo {
+		margin-top:10px;
+	}
+	
+	.about {
+		.pull-left {
+			padding-right:0px;
+		}
+		
+		.experience {	
+			.progress {
+				.progress-bar {
+					opacity:0.8;
+				}
+			}
+		}
+		
+		h2 {
+			margin-top:0px;
+			padding-top:0px;
+			padding-bottom:2px;
+		}
+		
+		.presentation {
+			.block {
+				span {
+					border: 1px solid #dddddd;
+					padding:10px;
+					margin-bottom:5px;
+					display:block;
+				}
+				
+				.panel-default {
+					margin-bottom:10px;
+				}
+			}
+		}
+	}
+	
+	button{
+		&.btn-default {
+			/*border:0px;*/
+			background-color:#444444;
+			color:#ffffff;
+			border-color:#222222;
+		}
+	}
+	
+	.form-control {
+		box-shadow:none;
+	}
+
+	
+	.services {
+		ul {
+			&.services-list {
+				.block {
+					h4 {
+						
+					}	
+					
+					p {
+						
+					}
+				}
+			}
+		}
+		
+		.workflow {	
+			height:40px;		
+			
+			.progress-bar {
+				line-height:40px;
+				height:40px;
+				font-size:15px;
+				
+				&.idea {
+					width:15%;
+				}
+				
+				&.code {
+					width:45%;
+				}
+				
+				&.illustration {
+					width:15%;
+				}
+				
+				&.quality {
+					width:15%;
+				}
+				
+				&.launch {
+					width:10%;
+				}
+			}
+		}		
+	}
+	
+	.experience {	
+			.progress {
+				height:30px;
+				margin-bottom:5px;
+				
+				.progress-bar {
+					text-align:left;
+					line-height:25px;
+					padding-left:8px;
+					font-size:14px;
+					opacity:0.8;
+									
+					&:hover {
+						cursor:pointer;
+					}
+					
+					&.html {
+						width: 85%;
+					}
+					
+					&.css {
+						width: 85%;
+					}
+					
+					&.javascript {
+						width:80%;
+					}
+					
+					&.php {
+						width:80%;
+					}
+					
+					&.wordpress {
+						width:80%;
+					}
+					
+					&.joomla {
+						width:85%;
+					}
+					
+					&.bootstrap {
+						width:75%;
+					}
+					
+					&.video_edit {
+						width:70%;
+					}
+					
+					&.music_edit {
+						width:80%;
+					}
+					
+					&.picture_edit {
+						width:90%;
+					}
+					
+					&.flash {
+						width:60%;
+					}
+					
+					&.english {
+						width:75%;
+					}
+				}
+			}
+		}
+	
+	.resume {
+		clear:both;
+	}
+	
+	nav {
+		margin-top:10px;
+	}
+	
+	#contact {
+		clear:both;
+	}
+}
+
+@media (max-width: 1200px) { 
+} 
+
+@media (max-width: 1000px) {
+	body {	
+		.resume {
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	body {	
+		.box-logo {
+			.icon-logo {
+				display:none;
+			}
+		}
+	
+		.services {
+			.workflow {	
+				.progress-bar {
+					font-size:11px;
+					
+					&.idea {
+					}
+					
+					&.code {
+					}
+					
+					&.illustration {
+					}
+					
+					&.quality {
+					}
+					
+					&.launch {
+					}
+				}
+			}		
+		}
+	}
+}
+
+@media (max-width: 480px) { 
+	
+}

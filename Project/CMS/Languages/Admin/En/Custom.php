@@ -1,0 +1,6 @@
+<?php
+
+define('ADD_CUSTOM_MODULE', 'ADD CUSTOM MODULE');
+define('EDIT_CUSTOM_MODULE', 'EDIT CUSTOM MODULE');
+
+?>

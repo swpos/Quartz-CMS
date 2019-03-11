@@ -1,0 +1,1 @@
+<script type="text/javascript" src="/Plugins/datatable/files/media/js/jquery.dataTables.min.js"></script>

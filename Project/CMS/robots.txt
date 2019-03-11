@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /blockscript/
+Disallow: /Administrator/
+Disallow: /Functions/
+Disallow: /INSTALL/
+Disallow: /Languages/
+Disallow: /Libraries/
+Disallow: /Modules/
+Disallow: /Plugins/
+Disallow: /Tmp/
+Disallow: /UPDATE_DATABASE/
