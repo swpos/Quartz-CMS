@@ -8,7 +8,7 @@ foreach($files as $key => $file) {
 	if($file != '.' && $file != '..'){
 		if(!is_dir($folder.$file)){
 			echo "<option value=\"url('../../images/".$pathImages."/".$file."')\"";
-			if($start_value == "url('../../images/".$pathImages."/".urlencode($file)."')") { echo " selected=\"selected\""; }
+			if($start_value == 'url(\'../../images/'.$pathImages.'/'.$file.'\')') { echo " selected=\"selected\""; }
 			echo">".substr($file, 0, 40)."</option>";
 		}
 	}

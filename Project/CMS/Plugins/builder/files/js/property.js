@@ -239,39 +239,60 @@
 		$('body').reloadStylesheets(filename);
 	};
 	
-	$.fn.copyCSS = function () {
-		var targeting = $(this)[0];
-        var style;
-        var returns = {};
-        // FireFox and Chrome way
-        if(window.getComputedStyle){
-            style = window.getComputedStyle(targeting, null);
-
-            for(var i = 0, l = style.length; i < l; i++){
-                var prop = style[i];
-                var val = style.getPropertyValue(prop);
-                returns[prop] = val;
-            }
-            return returns;
-        }
-        // IE and Opera way
-        if(targeting.currentStyle){
-            style = targeting.currentStyle;
-            for(var prop in style){
-                returns[prop] = style[prop];
-            }
-            return returns;
-        }
-        // Style from style attribute
-        if(style = targeting.style){
-            for(var prop in style){
-                if(typeof style[prop] != 'function'){
-                    returns[prop] = style[prop];
-                }
-            }
-            return returns;
-        }
-        return returns;
+	$.fn.copyCSS = function (style1) {
+        var returns = {
+			'background-attachment' : '',
+			'background-blend-mode' : '',
+			'background-clip' : '',
+			'background-color' : '',
+			'background-image' : '',
+			'background-origin' : '',
+			'background-position' : '',
+			'background-position-x' : '',
+			'background-position-y' : '',
+			'background-repeat' : '',
+			'background-size' : '',
+			'width' : '',
+			'height' : '',
+			'display' : '',
+			'padding-top' : '',
+			'padding-right' : '',
+			'padding-bottom' : '',
+			'padding-left' : '',
+			'margin-top' : '',
+			'margin-right' : '',
+			'margin-bottom' : '',
+			'margin-left' : '',
+			'font-size' : '',
+			'font-weight' : '',
+			'color' : '',
+			'text-decoration' : '',
+			'border-bottom-color' : '',
+			'border-bottom-left-radius' : '',
+			'border-bottom-right-radius' : '',
+			'border-bottom-style' : '',
+			'border-bottom-width' : '',
+			'border-left-color' : '',
+			'border-left-style' : '',
+			'border-left-width' : '',
+			'border-right-color' : '',
+			'border-right-style' : '',
+			'border-right-width' : '',
+			'border-top-color' : '',
+			'border-top-left-radius' : '',
+			'border-top-right-radius' : '',
+			'border-top-style' : '',
+			'border-top-width' : ''
+		};
+        
+		for(var i in returns){
+			if(style1[i]){
+				returns[i] = style1[i];
+			} else {
+				returns[i] = '';
+			}
+		}
+		return returns;
     };
 	
 	$.fn.copyAttr = function () {
@@ -286,12 +307,25 @@
 	
 	$.fn.render_element = function(name, filename, path_image) {
 		var $this = $(this);
-		var style = $(this).copyCSS();
-		var attr = $(this).copyAttr();
-		var content = { editor: $this.html()};
-		
-		var data = $.extend(style, attr, content);
-		$this.render_process($this, name, data, filename, path_image);
+		var data_to_send = {
+			file: filename,
+			element: $this.getPath()
+		};
+		var style;
+		$.ajax({
+		  method: "POST",
+		  url: "../Plugins/builder/files/style/get_css.php",
+		  data: data_to_send,
+		  dataType: 'json',
+		  success: function(data) {
+			style = $this.copyCSS(data.array);
+		  }
+		}).done(function(){
+			var attr = $this.copyAttr();
+			var content = { editor: $this.html()};
+			var data = $.extend(style, attr, content);
+			$this.render_process($this, name, data, filename, path_image);
+		});
 	};
 	
 })( jQuery );
