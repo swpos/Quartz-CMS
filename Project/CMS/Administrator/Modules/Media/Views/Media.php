@@ -1,7 +1,9 @@
 <?php echo $top_menu; ?>
 <h1><?php echo UPLOAD_MEDIA ?></h1>
 <?php echo $error; ?>
-<?php if(file_exists('../Plugins/fileupload/') && in_array('fileupload', $plugins)) { ?>
+<?php if(file_exists('../Plugins/fileupload/') && in_array('fileupload', $plugins)) { 
+$url_website = $system_config->full_url();
+?>
 <!--
 /*
 * jQuery File Upload Plugin
@@ -23,7 +25,7 @@
         <!-- Bootstrap styles -->
         <?php /*<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">*/ ?>
         <!-- blueimp Gallery styles -->
-        <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+        <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
         <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
         <link rel="stylesheet" href="../Plugins/fileupload/files/css/jquery.fileupload.css">
         <link rel="stylesheet" href="../Plugins/fileupload/files/css/jquery.fileupload-ui.css">
@@ -168,15 +170,15 @@
         <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
         <script src="../Plugins/fileupload/files/js/vendor/jquery.ui.widget.js"></script>
         <!-- The Templates plugin is included to render the upload/download listings -->
-        <script src="http://blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
+        <script src="//blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
         <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-        <script src="http://blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
+        <script src="//blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
         <!-- The Canvas to Blob plugin is included for image resizing functionality -->
-        <script src="http://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+        <script src="//blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
         <!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
         <?php /*<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>*/ ?>
         <!-- blueimp Gallery script -->
-        <script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+        <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
         <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
         <script src="../Plugins/fileupload/files/js/jquery.iframe-transport.js"></script>
         <!-- The basic File Upload plugin -->
@@ -202,7 +204,7 @@
                 $('#fileupload').fileupload({
                     // Uncomment the following to send cross-domain cookies:
                     //xhrFields: {withCredentials: true},
-                    url: 'http://<?php echo $_SERVER['SERVER_NAME'] ?>/Media/'
+                    url: '<?php echo $url_website ?>/Media/'
                 });
                 // Enable iframe cross-domain access via redirect option:
                 $('#fileupload').fileupload(
@@ -217,7 +219,7 @@
                 if (window.location.hostname === '<?php echo $_SERVER['SERVER_NAME'] ?>') {
                     // Demo settings:
                     $('#fileupload').fileupload('option', {
-                        url: 'http://<?php echo $_SERVER['SERVER_NAME'] ?>/Plugins/fileupload/files/server/php/index.php',
+                        url: '<?php echo $url_website ?>/Plugins/fileupload/files/server/php/index.php',
                         // Enable image resizing, except for Android and Opera,
                         // which actually support image resizing, but fail to
                         // send Blob objects via XHR requests:
@@ -229,7 +231,7 @@
                     // Upload server status check for browsers with CORS support:
                     if ($.support.cors) {
                         $.ajax({
-                            url: 'http://<?php echo $_SERVER['SERVER_NAME'] ?>/Plugins/fileupload/files/server/php/index.php',
+                            url: '<?php echo $url_website ?>/Plugins/fileupload/files/server/php/index.php',
                             type: 'HEAD'
                         }).fail(function () {
                             $('<div class="alert alert-danger"/>')

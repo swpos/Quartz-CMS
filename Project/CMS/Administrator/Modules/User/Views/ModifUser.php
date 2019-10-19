@@ -11,7 +11,7 @@
                 </tr>
                 <tr>
                     <td><?php echo $form['users']['email']['label']; ?></td>
-                    <td><input type='text' name='user[email]' value='<?php echo $al_fetch_users->email ?>' required pattern='^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$' /></td>
+                    <td><input type='text' name='user[email]' value='<?php echo $al_fetch_users->email ?>' required pattern='^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$' /></td>
                 </tr>
                 <tr>
                     <td><?php echo $form['users']['age']['label']; ?></td>
@@ -19,7 +19,7 @@
                 </tr>
                 <tr>
                     <td><?php echo $form['users']['picture']['label']; ?></td>
-                    <td><?php if(!empty($al_fetch_users->picture)){ ?><p><img src="<?php echo $al_fetch_users->picture; ?>" width="200" height="auto" /></p><?php } ?>
+                    <td><?php if(!empty($al_fetch_users->picture) && file_exists($al_fetch_users->picture)){ ?><p><img src="<?php echo $al_fetch_users->picture; ?>" width="200" height="auto" /></p><?php } else { echo '<p class="text-danger">'.NOT_A_VALID_PICTURE.'</p>'; } ?>                   
                     <input type='text' name='user[picture]' value='<?php echo $al_fetch_users->picture ?>' required /></td>
                 </tr>
 				<?php foreach($form['users'] as $rows => $data){ ?>

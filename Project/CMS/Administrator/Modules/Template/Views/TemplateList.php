@@ -33,10 +33,22 @@
                         ?>		
                         <tr>
                             <td width='150'>
-                                <img src='../Templates/<?php echo $al_value ?>/preview.jpg' style='width:100%; height:auto;' />
+                            	<a href="index.php?page=Template&action=template_edit&alias=<?php echo $al_value; ?>&file=&folder=../Templates/<?php echo $al_value; ?>"><img src='../Templates/<?php echo $al_value ?>/preview.jpg' style='width:100%; height:auto;' /></a>
                             </td>
                             <td>
-                                <?php echo $al_value ?>
+                            	<h4>
+                                <?php if($al_fetch_template->active == '1') { ?>
+                                	<?php echo $al_value ?> 
+                                    <label class="label label-success">                               		
+                                		<a href="index.php?page=Template&action=template_edit&alias=<?php echo $al_value; ?>&file=&folder=../Templates/<?php echo $al_value; ?>" style="color: #ffffff"><?php echo EDIT_TEMPLATE ?></a>
+                                    </label>
+                                <?php } else { ?>
+                                	<?php echo $al_value ?>
+                                    <label class="label label-warning">
+                                		 <a href="index.php?page=Template&action=template_edit&alias=<?php echo $al_value; ?>&file=&folder=../Templates/<?php echo $al_value; ?>" style="color: #ffffff"><?php echo EDIT_TEMPLATE ?></a>
+                                    </label>
+                                <?php } ?>
+                                </h4>
                             </td>
                             <td>
                                 <textarea name='description[<?php echo $al_fetch_template->id; ?>]'><?php echo $al_fetch_template->description ?></textarea>

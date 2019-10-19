@@ -14,5 +14,9 @@ define('SHOW_MEDIAS_FILE_NAME', 'Nom du fichier');
 define('SHOW_MEDIAS_FILE_SIZE', 'Taille du fichier');
 define('SHOW_MEDIAS_DELETE', 'Supprimer');
 define('SHOW_MEDIAS_BYTES', 'Octets');
+define('SHOW_MEDIAS_MOVE_FOLDER', 'Déplacer le fichier');
+define('SHOW_MEDIAS_COPY_FILE', 'Copier le fichier');
+define('MEDIA_LIST', 'Liste de médias');
+define('SHOW_MEDIAS_MIME_TYPE', 'Type MIME');
 
 ?>
