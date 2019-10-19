@@ -61,6 +61,7 @@ define('MENU_TOP_MEDIA', 'Media');
 define('MENU_TOP_MEDIA_ADD_MEDIA', 'Add Media');
 define('MENU_TOP_MEDIA_SHOW_MEDIA', 'Show Media');
 define('MENU_TOP_LANGUAGES', 'Languages');
+define('MENU_TOP_EDIT_LANGUAGES', 'Edit Languages');
 define('MENU_TOP_DISCONNECT', 'Disconnect');
 define('MENU_TOP_VIEW_SITE', 'Site');
 

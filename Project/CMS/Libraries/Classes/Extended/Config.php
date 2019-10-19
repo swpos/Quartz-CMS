@@ -185,6 +185,7 @@ class Config extends Standard {
 					  <ul class="dropdown-menu" role="menu">
 						<li><a href="index.php?page=Language&action=changelang&lang=fr">Français</a></li>
 						<li><a href="index.php?page=Language&action=changelang&lang=en">English</a></li>
+						<li><a href="index.php?page=Language&action=language_edit">'. MENU_TOP_EDIT_LANGUAGES .'</a></li>
 					  </ul>
 					</li>
 				  </ul>

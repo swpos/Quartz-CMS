@@ -39,5 +39,6 @@ define('SHOW_AGE', 'Show age');
 define('SHOW_ABOUT', 'Show about');
 define('SHOW_PICTURE', 'Show picture');
 define('USER', 'User');
+define('NOT_A_VALID_PICTURE', 'The picture does not exist.');
 
 ?>

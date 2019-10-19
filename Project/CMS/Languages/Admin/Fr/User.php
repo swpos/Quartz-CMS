@@ -39,5 +39,7 @@ define('SHOW_AGE', 'Afficher l\'âge');
 define('SHOW_ABOUT', 'Afficher à propos');
 define('SHOW_PICTURE', 'Afficher l\'image');
 define('USER', 'Utilisateur');
+define('NOT_A_VALID_PICTURE', 'L\'image n\'existe pas.');
+
 
 ?>
