@@ -68,6 +68,15 @@ class Config extends ModuleExtended {
 		fwrite($al_fp, '$session_time = "' . $post['session_time'] . '"; ' . "\n");
 		fwrite($al_fp, '$session_path = "' . $post['session_path'] . '"; ' . "\n");
 		fwrite($al_fp, '$timezone = "' . $post['timezone'] . '"; ' . "\n");
+		fwrite($al_fp, '$mailer_type = "' . $post['mailer_type'] . '"; ' . "\n");
+		fwrite($al_fp, '$mailer_host = "' . $post['mailer_host'] . '"; ' . "\n");
+		fwrite($al_fp, '$mailer_auth = "' . $post['mailer_auth'] . '"; ' . "\n");
+		fwrite($al_fp, '$mailer_username = "' . $post['mailer_username'] . '"; ' . "\n");
+		fwrite($al_fp, '$mailer_password = "' . $post['mailer_password'] . '"; ' . "\n");
+		fwrite($al_fp, '$mailer_from = "' . $post['mailer_from'] . '"; ' . "\n");
+		fwrite($al_fp, '$mailer_html = "' . $post['mailer_html'] . '"; ' . "\n");
+		fwrite($al_fp, '$mailer_secure = "' . $post['mailer_secure'] . '"; ' . "\n");
+		fwrite($al_fp, '$mailer_port = "' . $post['mailer_port'] . '"; ' . "\n");
 		fwrite($al_fp, '?>');
 		fclose($al_fp);
     }

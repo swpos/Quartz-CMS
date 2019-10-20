@@ -89,6 +89,57 @@
 				<?php echo CONFIGURATION_EXCEPT_ADMIN ?> : <input type="text" name="except_admin" value="<?php echo $al_fetch_config->except_admin ?>" />
             </div>
        	</div>
+        <h3><?php echo CONFIGURATION_MAILER ?></h3>
+        <div class="row">
+            <div class="col-md-12">
+				<p>
+					<?php echo CONFIGURATION_MAILER_MAIL ?> <input type='radio' value='mail' name='mailer_type' <?php
+                    if ($mailer_type == 'mail') { echo"checked='checked'"; } ?> /> | 
+                    <?php echo CONFIGURATION_MAILER_SMTP ?>  <input type='radio' value='smtp' name='mailer_type' <?php
+                    if ($mailer_type == 'smtp') { echo"checked='checked'"; } ?> />
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+				<?php echo CONFIGURATION_MAIL_SMTP_HOST ?> : <input type="text" name="mailer_host" value="<?php echo $mailer_host ?>" />
+            </div>
+            <div class="col-md-3">
+				<?php echo CONFIGURATION_MAIL_SMTP_USERNAME ?> : <input type="text" name="mailer_username" value="<?php echo $mailer_username ?>" />
+            </div>
+            <div class="col-md-3">
+				<?php echo CONFIGURATION_MAIL_SMTP_PASSWORD ?> : <input type="password" name="mailer_password" value="<?php echo $mailer_password ?>" />
+            </div>
+            <div class="col-md-3">
+				<?php echo CONFIGURATION_MAIL_SMTP_AUTH ?> :<br />
+                <?php echo CONFIGURATION_MAILER_SMTP_AUTH_TRUE ?> <input type='radio' value='true' name='mailer_auth' <?php
+                if ($mailer_auth == 'true') { echo"checked='checked'"; } ?> />
+                <?php echo CONFIGURATION_MAILER_SMTP_AUTH_FALSE ?>  <input type='radio' value='false' name='mailer_auth' <?php
+				if ($mailer_auth == 'false') { echo"checked='checked'"; } ?> />
+            </div>
+       	</div>
+        <div class="row">
+        	<div class="col-md-3">
+				<?php echo CONFIGURATION_MAIL_SMTP_FROM ?> : <input type="text" name="mailer_from" placeholder="test@example.com;Test" value="<?php echo $mailer_from ?>" />
+            </div>
+            <div class="col-md-3">
+				<?php echo CONFIGURATION_MAIL_SMTP_PORT ?> : <input type="text" name="mailer_port" value="<?php echo $mailer_port ?>" />
+            </div>
+            <div class="col-md-3">
+           		<?php echo CONFIGURATION_MAIL_SMTP_HTML ?> :<br />
+				<?php echo CONFIGURATION_MAIL_SMTP_HTML_YES ?> <input type='radio' value='true' name='mailer_html' <?php
+                if ($mailer_html == 'true') { echo"checked='checked'"; } ?> />
+                <?php echo CONFIGURATION_MAIL_SMTP_HTML_NO ?>  <input type='radio' value='false' name='mailer_html' <?php
+				if ($mailer_html == 'false') { echo"checked='checked'"; } ?> />
+            </div>
+            <div class="col-md-3">
+           		<?php echo CONFIGURATION_MAIL_SMTP_SECURE ?> :<br />
+				<?php echo CONFIGURATION_MAIL_SMTP_SECURE_SSL ?> <input type='radio' value='ssl' name='mailer_secure' <?php
+                if ($mailer_secure == 'ssl') { echo"checked='checked'"; } ?> />
+                <?php echo CONFIGURATION_MAIL_SMTP_SECURE_TLS ?>  <input type='radio' value='tls' name='mailer_secure' <?php
+				if ($mailer_secure == 'tls') { echo"checked='checked'"; } ?> />
+            </div>
+       	</div>
         <h3><?php echo CONFIGURATION_TIMEZONE ?></h3>
         <div class="row">
             <div class="col-md-12">

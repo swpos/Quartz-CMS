@@ -38,22 +38,22 @@ class Contact extends ModuleExtended {
 
             if ($al_send_complete_mail == 'yes') {
                 $al_content_message = "
-				First name : " . $form['contact']['first_name'] . "
-				Last name : " . $form['contact']['last_name'] . "
-				Email : " . $form['contact']['email'] . "
-				Phone : " . $form['contact']['phone'] . "
-				Postal code : " . $form['contact']['postal_code'] . "
-				City : " . $form['contact']['city'] . "
-				State : " . $form['contact']['states'] . "
-				Country : " . $form['contact']['country'] . "
-				Date of birth : " . $form['contact']['daybirth'] . "/" . $form['contact']['monthbirth'] . "/" .$form['contact']['yearbirth'] . "
-				Gender : " . $form['contact']['gender'] . "
+				First name : " . $form['contact']['first_name'] . "<br />
+				Last name : " . $form['contact']['last_name'] . "<br />
+				Email : " . $form['contact']['email'] . "<br />
+				Phone : " . $form['contact']['phone'] . "<br />
+				Postal code : " . $form['contact']['postal_code'] . "<br />
+				City : " . $form['contact']['city'] . "<br />
+				State : " . $form['contact']['states'] . "<br />
+				Country : " . $form['contact']['country'] . "<br />
+				Date of birth : " . $form['contact']['daybirth'] . "/" . $form['contact']['monthbirth'] . "/" .$form['contact']['yearbirth'] . "<br />
+				Gender : " . $form['contact']['gender'] . "<br />
 				
 				MESSAGE : " . $form['contact']['content'];
             } else {
                 $al_content_message = "
-				First name : " . $form['contact']['first_name'] . "
-				Last name : " . $form['contact']['last_name'] . "
+				First name : " . $form['contact']['first_name'] . "<br />
+				Last name : " . $form['contact']['last_name'] . "<br />
 				
 				MESSAGE : " . $form['contact']['content'];
             }
@@ -62,26 +62,25 @@ class Contact extends ModuleExtended {
 				$contact = $display->post_contact_select2([]);
                 $al_email_webmaster = $contact->email;
                 $subject = 'Contact Form - ' . $this->system_config->loadvariable();
-                $message = 'A message from the contact form on the website. Here is the content : ' . $al_content_message;
+                $message = 'A message from the contact form on the website. Here is the content : <br />' . $al_content_message;
                 $headers = 'From: ' . $form['contact']['email'] . "\r\n" .
                         'Reply-To: ' . $form['contact']['email'] . "\r\n" .
                         'MIME-Version: 1.0' . "\r\n" .
 						'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-                mail($al_email_webmaster, $subject, $message, $headers);
+                $this->system_config->mailer($al_email_webmaster, $subject, $message, $headers);
             } else {
                 $subject = 'Contact Form - ' . $this->system_config->loadvariable();
-                $message = 'A message from the contact form on the website. Here is the content : ' . $al_content_message;
+                $message = 'A message from the contact form on the website. Here is the content : <br />' . $al_content_message;
                 $headers = 'From: ' . $form['contact']['email'] . "\r\n" .
                         'Reply-To: ' . $form['contact']['email'] . "\r\n" .
                         'MIME-Version: 1.0' . "\r\n" .
 						'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
                 foreach ($al_send_users_array as $email) {
-                    mail($email, $subject, $message, $headers);
+                    $this->system_config->mailer($email, $subject, $message, $headers);
                 }
             }
-			
 			$display->post_contact_insert($form['contact']);
         }
         header('Location: ' . $_SERVER['HTTP_REFERER']);
