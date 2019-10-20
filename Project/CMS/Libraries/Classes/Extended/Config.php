@@ -2,6 +2,9 @@
 
 namespace CMS\Libraries\Classes\Extended;
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 use CMS\Libraries\Classes\Standard as Standard;
 
 class Config extends Standard {
@@ -204,6 +207,57 @@ class Config extends Standard {
 		';
         return $menu;
     }
+	
+	public function mailer($recipient, $subject, $message, $headers) {
+		$mailer_type = "mail";
+		if(file_exists('../config.php')){
+			include('../config.php');
+		}
+		$mailer = 'mail_'. $mailer_type;
+		return $this->$mailer($recipient, $subject, $message, $headers);
+	}
+	
+	public function mail_mail($recipient, $subject, $message, $headers) {
+		return mail($recipient, $subject, $message, $headers);
+	}
+	
+	public function mail_smtp($recipient, $subject, $message, $headers) {
+		if(file_exists('../config.php')){
+			include('../config.php');
+		
+			// Instantiation and passing `true` enables exceptions
+			$mail = new PHPMailer(true);
+			
+			try {
+				//Server settings
+				$mail->SMTPDebug = false;                      // Enable verbose debug output
+				$mail->isSMTP();                                            // Send using SMTP
+				$mail->Host       = $mailer_host;                    // Set the SMTP server to send through
+				$mail->SMTPAuth   = filter_var($mailer_auth, FILTER_VALIDATE_BOOLEAN);                                   // Enable SMTP authentication
+				$mail->Username   = $mailer_username;                     // SMTP username
+				$mail->Password   = $mailer_password;                               // SMTP password
+				$mail->SMTPSecure = $mailer_secure;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+				$mail->Port       = $mailer_port;                                   // TCP port to connect to
+			
+				//Recipients
+				$mailer_from = explode(';',$mailer_from);
+				$mail->setFrom($mailer_from[0], $mailer_from[1]);
+				$mail->addAddress($recipient);
+				$mail->addReplyTo($mailer_from[0], $mailer_from[1]);
+				
+				// Content
+				$mail->isHTML(filter_var($mailer_html, FILTER_VALIDATE_BOOLEAN));                                  // Set email format to HTML
+				$mail->Subject = $subject;
+				$mail->Body    = $message;
+				$mail->AltBody = strip_tags($message);
+			
+				$mail->send();
+				//echo 'Message has been sent';
+			} catch (Exception $e) {
+				//echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+			}
+		}
+	}
 
     public function plugins($id) {
 		$al_fetch_plugins = 
