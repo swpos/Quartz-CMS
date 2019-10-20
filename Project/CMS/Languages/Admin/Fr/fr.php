@@ -54,6 +54,7 @@ define('MENU_TOP_MENU', 'Menu');
 define('MENU_TOP_ADD_LINK', 'Ajouter un lien');
 define('MENU_TOP_TEMPLATES', 'Templates');
 define('MENU_TOP_CONFIGURATION', 'Configuration');
+define('MENU_TOP_CONFIGURATION_UPDATE', 'Mis à jour du CMS');
 define('MENU_TOP_PLUGINS', 'Plugins');
 define('MENU_TOP_ADD_PLUGIN', 'Ajouter un plugin');
 define('MENU_TOP_LIST_PLUGINS', 'Liste des plugins');

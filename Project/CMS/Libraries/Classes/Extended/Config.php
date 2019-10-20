@@ -147,7 +147,13 @@ class Config extends Standard {
 					  </ul>
 					</li>
 					<li><a href="index.php?page=Template&action=template_listed">'. MENU_TOP_TEMPLATES .'</a></li>
-					<li><a href="index.php?page=Config&action=configuration_listed">'. MENU_TOP_CONFIGURATION .'</a></li>
+					<li class="dropdown">
+					  <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">'. MENU_TOP_CONFIGURATION .' <span class="caret"></span></a>
+					  	<ul class="dropdown-menu" role="menu">
+							<li><a href="index.php?page=Config&action=configuration_listed">'. MENU_TOP_CONFIGURATION .'</a></li>
+							<li><a href="index.php?page=Config&action=update_cms">'. MENU_TOP_CONFIGURATION_UPDATE .'</a></li>
+						</ul>
+					</li>
 					<li class="dropdown">
 					  <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">'. MENU_TOP_PLUGINS .' <span class="caret"></span></a>
 					  <ul class="dropdown-menu" role="menu">

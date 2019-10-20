@@ -20,6 +20,53 @@ class Config extends ModuleExtended {
 		
         return $this->system_view->render();
     }
+	
+	public function update_cms_post () {
+		exec("cd ".$_SERVER['DOCUMENT_ROOT']."../../ && if test -d .git/; then rm -R .git/; fi");
+		exec("cd ".$_SERVER['DOCUMENT_ROOT']."../../ && git init && git remote add origin https://github.com/quartzcms/Quartz-CMS && git fetch --all && git reset --hard origin/master");
+		exec("cd ".$_SERVER['DOCUMENT_ROOT']."../../ && php composer.phar self-update && php composer.phar update");
+	}
+	
+	public function update_cms () {
+		$content_repo = file('https://raw.githubusercontent.com/quartzcms/Quartz-CMS/master/Project/CMS/Languages/Admin/En/Panel.php');
+		foreach($content_repo as $key => $value){
+			if(strpos($value, 'Quartz CMS') !== false){
+				preg_match('/Version\s([0-9\.]+)/', $value, $matches);
+			}
+		}
+		
+		$project_content = file_get_contents('https://raw.githubusercontent.com/quartzcms/Quartz-CMS/master/composer.json');
+		$detect = 0;
+		exec("cd ".$_SERVER['DOCUMENT_ROOT']."../../ && cat composer.json 2>&1", $content_composer, $return_var);
+		$extension = [];
+		foreach($content_composer as $key => $value){
+			if($detect == 1){
+				$name = explode("\"", $value);
+				if(!isset($name[1])){
+					break;
+				}
+				
+				if(strpos($project_content, $name[1]) === false){
+					$extension[] = $name[1];
+				}
+			}
+			if(strpos($value, 'require') !== false){
+				$detect = 1;
+			}
+		}
+		
+		$content = file('../Languages/Admin/En/Panel.php');
+		foreach($content as $key => $value){
+			if(strpos($value, 'Quartz CMS') !== false){
+				preg_match('/Version\s([0-9\.]+)/', $value, $matches2);
+			}
+		}
+        $this->system_view->init('Config', 'Update');
+		$this->system_view->assign('repo_version', $matches[1]);
+		$this->system_view->assign('cms_version', $matches2[1]);
+		$this->system_view->assign('extension', $extension);
+        return $this->system_view->render();
+	}
 
     public function configuration_listed_update() {
 		$get = $this->v->_gA();

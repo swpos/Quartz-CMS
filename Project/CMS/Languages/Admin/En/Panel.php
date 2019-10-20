@@ -10,6 +10,7 @@ define('CONTROL_PANEL_CONFIGURATION', 'Configuration');
 define('CONTROL_PANEL_PLUGINS', 'Plugins');
 define('CONTROL_PANEL_MEDIAS', 'Medias');
 define('CONTROL_PANE_LOGOUT', 'Logout');
-define('CONTROL_PANEL_CREDIT', 'Version 3.8 Beta - Quartz CMS');
+// Do not change this next line
+define('CONTROL_PANEL_CREDIT', 'Version 3.8.3 Beta - Quartz CMS');
 
 ?>
