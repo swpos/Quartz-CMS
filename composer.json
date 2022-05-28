@@ -9,7 +9,7 @@
     ],
     
     "require": {
-		"doctrine/dbal": "2.5.1",
+		"doctrine/dbal": "^2.13",
 		"phpmailer/phpmailer": "~6.1"
     },
     

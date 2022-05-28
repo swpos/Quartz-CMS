@@ -246,7 +246,7 @@ class Form extends Standard {
 		return $container;
 	}
 	
-	public function gen_menStruc($al_shortcut_multiple = null, $module, $required) {
+	public function gen_menStruc($al_shortcut_multiple, $module, $required) {
 		$al_shortcut_multiple = isset($al_shortcut_multiple) ? $al_shortcut_multiple : array(); 
 		$al_fetch_section_names = 
 			$this->data->getData(
