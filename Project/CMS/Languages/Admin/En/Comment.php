@@ -9,6 +9,7 @@ define('LIST_COMMENT_USERNAME_SEARCH', 'Username');
 define('LIST_COMMENT_USERNAME', 'Username');
 define('LIST_COMMENT_DATE', 'Date');
 define('LIST_COMMENT_TIME', 'Time');
+define('LIST_COMMENT_EMAIL', 'Email');
 define('EDIT_COMMENT', 'EDIT COMMENT');
 define('EDIT_COMMENT_TITLE', 'Title');
 

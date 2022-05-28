@@ -30,7 +30,9 @@ class Language {
 			$side = "";
 			$folder = "Site";
 		}
+		
 		if (file_exists($side."Languages/".$folder."/" . ucfirst($lang) . "/" . $plugin . ".php") && empty($_SESSION[$folder][$plugin])) {
+			$_SESSION[$folder] = [];
 			$_SESSION[$folder][$plugin] = '1';
 			
             return include $side."Languages/".$folder."/" . ucfirst($lang) . "/" . $plugin . ".php";

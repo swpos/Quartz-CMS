@@ -17,7 +17,7 @@ class Database {
     }
 
     public function database() {
-        try {
+		try {
 			$config = new \Doctrine\DBAL\Configuration();
 			$connectionParams = array(
 				'dbname' => $this->al_db_name,

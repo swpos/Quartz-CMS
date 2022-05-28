@@ -17,7 +17,8 @@ class Database {
     }
 
     public function database() {
-        try {
+		try {
+			
 			$config = new \Doctrine\DBAL\Configuration();
 			$connectionParams = array(
 				'dbname' => $this->al_db_name,
@@ -25,10 +26,11 @@ class Database {
 				'password' => $this->al_password,
 				'host' => $this->al_host,
 				'driver' => 'pdo_mysql',
-				'charset' => 'UTF8',
+				'charset' => 'utf8',
 			);
 			$conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
             return $conn;
+			
         } catch (Exception $e) {
             echo "Connection à MySQL impossible : ", $e->getMessage();
             die();

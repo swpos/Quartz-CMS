@@ -6,7 +6,6 @@ define('UPDATE_USER', 'UPDATE USER');
 define('FIRST_NAME', 'First Name');
 define('LAST_NAME', 'Last name');
 define('PASSWORD', 'Password');
-define('EMAIL', 'Email');
 define('GENDER', 'Gender');
 define('MALE', 'Male');
 define('FEMALE', 'Female');
@@ -31,7 +30,6 @@ define('EDIT_USER_MODULE', 'EDIT USER MODULE');
 
 define('SHOW_FIRST_NAME', 'Show first name');
 define('SHOW_LAST_NAME', 'Show last name');
-define('SHOW_EMAIL', 'Show email');
 define('SHOW_GENDER', 'Show gender');
 define('SHOW_CITY', 'Show city');
 define('SHOW_COUNTRY', 'Show country');

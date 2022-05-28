@@ -68,7 +68,7 @@ class Module {
 			$article_class = new \CMS\Modules\Article\Article($this->container);
 			$articles = $article_class->load_articles_real();
 			
-            foreach ($articles as $row) {
+            foreach ((!is_array($articles) ? array($articles) : $articles) as $row) {
 				$shortcuts = explode(':', $row->shortcut);
 				if (in_array($this->v->_g('page'), $shortcuts) || in_array("all", $shortcuts)) {
 					$this->system_languages->loadlangfileplugin('Article', $this->v->_s('lang'), 'site');
@@ -117,7 +117,7 @@ class Module {
 						
 						if (in_array($custom_type, $retreive_published)) {
 							$array_var = "plugin_var_".$id;
-							$$array_var = "";
+							${$array_var} = [];
 							$content_var = "plugin_content_".$id;
 							$$content_var = "";
 						

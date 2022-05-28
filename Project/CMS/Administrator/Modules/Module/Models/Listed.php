@@ -63,7 +63,7 @@ class Listed extends ModuleExtended {
 					$buildQuery = $this->v->_s('order_module_query');
 				}
 			}
-			$total = count($this->data->getData($this->db->query("SELECT * FROM " . HASH . "_modules " . $buildQuery)));
+			$total = count((Array) $this->data->getData($this->db->query("SELECT * FROM " . HASH . "_modules " . $buildQuery)));
 			$al_fetch_modules = $this->data->getData($this->db->query("SELECT * FROM " . HASH . "_modules " . $buildQuery . " " . $this->system_pagination->get_pagination($total)));
 			$al_fetch_modules = empty($al_fetch_modules) ? [] : $al_fetch_modules;
 			return ['rows' => $al_fetch_modules, 'total' => $total];
