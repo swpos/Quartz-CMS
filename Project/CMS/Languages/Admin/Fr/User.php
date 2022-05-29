@@ -6,7 +6,6 @@ define('UPDATE_USER', 'METTRE À JOUR L\'UTILISATEUR');
 define('FIRST_NAME', 'Prénom');
 define('LAST_NAME', 'Nom de famille');
 define('PASSWORD', 'Mot de passe');
-define('EMAIL', 'Courriel');
 define('GENDER', 'Sexe');
 define('MALE', 'Masculin');
 define('FEMALE', 'Féminin');
@@ -31,7 +30,6 @@ define('EDIT_USER_MODULE', 'ÉDITER LE MODULE UTILISATEUR');
 
 define('SHOW_FIRST_NAME', 'Afficher le prénom');
 define('SHOW_LAST_NAME', 'Afficher le nom de famille');
-define('SHOW_EMAIL', 'Afficher le courriel');
 define('SHOW_GENDER', 'Afficher le genre');
 define('SHOW_CITY', 'Afficher la ville');
 define('SHOW_COUNTRY', 'Afficher le pays');

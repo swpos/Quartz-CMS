@@ -8,6 +8,7 @@ define('UPLOAD_MEDIA_START', 'Start');
 define('UPLOAD_MEDIA_CANCEL', 'Cancel');
 define('UPLOAD_MEDIA_DELETE', 'Delete');
 
+define('MEDIA_REFRESH', 'Refresh');
 define('SHOW_MEDIAS', 'SHOW MEDIAS');
 define('SHOW_MEDIAS_PICTURE', 'Picture');
 define('SHOW_MEDIAS_FILE_NAME', 'File name');

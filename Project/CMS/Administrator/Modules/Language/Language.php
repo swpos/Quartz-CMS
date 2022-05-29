@@ -37,8 +37,8 @@ class Language extends ModuleExtended {
 			fwrite($handle, '');
 			fclose($handle);
 		} else {
-			$folder = $get['folder'];
-			$file = $get['file'];
+			$folder = isset($get['folder']) ? $get['folder'] : '../Languages/Admin';
+			$file = isset($get['file']) ? $get['file'] : '';
 			$folder = $post['folder'];
 			$rename = $post['rename'];
 			$delete = $post['delete'];
@@ -72,8 +72,8 @@ class Language extends ModuleExtended {
 	public function language_edit() {
         $get = $this->v->_gA();
 		$post = $this->v->_pA();
-		$folder = $get['folder'];
-		$file = $get['file'];
+		$folder = isset($get['folder']) ? $get['folder'] : '../Languages/Admin';
+		$file = isset($get['file']) ? $get['file'] : '';
         if($folder == '../Languages'){
 			if(empty($file)){
 				$file = 'index.html';

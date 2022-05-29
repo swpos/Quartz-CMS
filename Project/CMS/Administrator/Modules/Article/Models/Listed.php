@@ -55,7 +55,7 @@ class Listed extends ModuleExtended {
 					$buildQuery = $this->v->_s('order_article_query');
 				}
 			}
-			$total = count($this->data->getData($this->db->query("SELECT * FROM " . HASH . "_articles " . $buildQuery)));
+			$total = count((Array) $this->data->getData($this->db->query("SELECT * FROM " . HASH . "_articles " . $buildQuery)));
 			$al_fetch_articles = $this->data->getData($this->db->query("SELECT * FROM " . HASH . "_articles " . $buildQuery . " " . $this->system_pagination->get_pagination($total)));
 			$al_fetch_articles = empty($al_fetch_articles) ? [] : $al_fetch_articles;
 			return ['rows' => $al_fetch_articles, 'total' => $total];

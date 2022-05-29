@@ -1,19 +1,21 @@
 <?php
 
-ini_set('display_errors', 0);
+ini_set('display_errors', 1);
 require '../../../vendor/autoload.php';
 define("SIDE", '/Administrator');
 
 if (file_exists('../config.php')) {
-    include('../config.php');
+	include('../config.php');
 	define("HASH", $prefix_table);
 } else {
     die('The config file dosen\'t exist !');
 }
 
-if(!empty($timezone)){ date_default_timezone_set($timezone); }
+if(!empty($timezone)){ 
+	date_default_timezone_set($timezone); 
+}
 $session_domain = !empty($session_domain) ? $session_domain : $_SERVER['SERVER_NAME'];
-$session_time = !empty($session_time) ? $session_time : '0';
+$session_time = !empty($session_time) ? (int)$session_time : 0;
 $session_path = !empty($session_path) ? $session_path : '/';
 session_set_cookie_params($session_time, $session_path, $session_domain);
 session_start();
@@ -25,7 +27,12 @@ $_SESSION['lang'] = isset($_SESSION['lang']) ? $_SESSION['lang'] : "en";
 
 $container = new stdClass();
 // Connexion and Data
-$container->system_connexion = new \CMS\Administrator\Functions\Database\Database($al_db_name, $al_user, $al_password, $al_host);
+$container->system_connexion = new \CMS\Administrator\Functions\Database\Database(
+	$al_db_name, 
+	$al_user, 
+	$al_password, 
+	$al_host
+);
 $container->data = new \CMS\Libraries\Classes\Container\Data($container);
 
 // Load libraries

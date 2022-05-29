@@ -63,22 +63,24 @@
     	<?php
 			$not_matched = 0;
 			$html_dir = '../Templates/'.$system_template->loaddefaulttemplate().'/html';
-			$folders = scandir($html_dir);
-			
-			foreach ($folders as $al_key => $al_value) {
-				if($al_value != '.' && $al_value != '..'){
-					$folders2 = scandir($html_dir.'/'.$al_value);
-					foreach ($folders2 as $al_key2 => $al_value2) {
-						if($al_value2 != '.' && $al_value2 != '..'){
-							if(file_get_contents($html_dir.'/'.$al_value.'/'.$al_value2) != file_get_contents('../Modules/'.$al_value.'/Views/'.$al_value2)){
-								echo "<div class=\"text-danger\">";
-								echo $html_dir.'/'.$al_value.'/'.$al_value2.' '. TEMPLATES_OVERRIDE_NOT_MATCHED . ' ../Modules/'.$al_value.'/Views/'.$al_value2;
-								$not_matched = 1;
-								echo "</div>";
-							} else {
-								echo "<div class=\"text-success\">";
-								echo $html_dir.'/'.$al_value.'/'.$al_value2.' '. TEMPLATES_OVERRIDE_MATCHED . ' ../Modules/'.$al_value.'/Views/'.$al_value2;
-								echo "</div>";
+			if(file_exists($html_dir)){
+				$folders = scandir($html_dir);
+				
+				foreach ($folders as $al_key => $al_value) {
+					if($al_value != '.' && $al_value != '..'){
+						$folders2 = scandir($html_dir.'/'.$al_value);
+						foreach ($folders2 as $al_key2 => $al_value2) {
+							if($al_value2 != '.' && $al_value2 != '..'){
+								if(file_get_contents($html_dir.'/'.$al_value.'/'.$al_value2) != file_get_contents('../Modules/'.$al_value.'/Views/'.$al_value2)){
+									echo "<div class=\"text-danger\">";
+									echo $html_dir.'/'.$al_value.'/'.$al_value2.' '. TEMPLATES_OVERRIDE_NOT_MATCHED . ' ../Modules/'.$al_value.'/Views/'.$al_value2;
+									$not_matched = 1;
+									echo "</div>";
+								} else {
+									echo "<div class=\"text-success\">";
+									echo $html_dir.'/'.$al_value.'/'.$al_value2.' '. TEMPLATES_OVERRIDE_MATCHED . ' ../Modules/'.$al_value.'/Views/'.$al_value2;
+									echo "</div>";
+								}
 							}
 						}
 					}
