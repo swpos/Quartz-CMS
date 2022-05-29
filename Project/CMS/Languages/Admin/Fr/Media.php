@@ -8,6 +8,7 @@ define('UPLOAD_MEDIA_START', 'Débuter');
 define('UPLOAD_MEDIA_CANCEL', 'Annuler');
 define('UPLOAD_MEDIA_DELETE', 'Effacer');
 
+define('MEDIA_REFRESH', 'Rafraîchir');
 define('SHOW_MEDIAS', 'AFFICHER LES MÉDIAS');
 define('SHOW_MEDIAS_PICTURE', 'Images');
 define('SHOW_MEDIAS_FILE_NAME', 'Nom du fichier');

@@ -32,6 +32,41 @@ class Media extends ModuleExtended {
         return $this->system_view->render();
     }
 	
+	public function media_browse() {
+		$get = $this->v->_gA();
+		$post = $this->v->_pA();
+		
+		if(empty($get['folder'])){
+			$folder = '../Media';
+		} else {
+			$folder = $get['folder'];
+		}
+		$system_config = $this->system_config;
+        $this->system_view->init('Media', 'BrowseMedia');
+		$this->system_view->assign('folder', $folder);
+		$this->system_view->assign('plugins', $this->container->system_plugins->check_plugin());
+		$this->system_view->assign('system_config', $system_config);
+        return $this->system_view->render();
+    }
+	
+	public function media_select() {
+		$get = $this->v->_gA();
+		$post = $this->v->_pA();
+		
+		if(empty($get['folder'])){
+			$folder = '../Media';
+		} else {
+			$folder = $get['folder'];
+		}
+		$system_config = $this->system_config;
+        $this->system_view->init('Media', 'SelectMedia');
+		$this->system_view->assign('field_id', $get['field_id']);
+		$this->system_view->assign('folder', $folder);
+		$this->system_view->assign('plugins', $this->container->system_plugins->check_plugin());
+		$this->system_view->assign('system_config', $system_config);
+        return $this->system_view->render();
+    }
+	
 	public function process_media() {
 		$get = $this->v->_gA();
 		$post = $this->v->_pA();

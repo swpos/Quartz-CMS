@@ -20,7 +20,7 @@
                 <tr>
                     <td><?php echo $form['users']['picture']['label']; ?></td>
                     <td><?php if(!empty($al_fetch_users->picture) && file_exists($al_fetch_users->picture)){ ?><p><img src="<?php echo $al_fetch_users->picture; ?>" width="200" height="auto" /></p><?php } else { echo '<p class="text-danger">'.NOT_A_VALID_PICTURE.'</p>'; } ?>                   
-                    <input type='text' name='user[picture]' value='<?php echo $al_fetch_users->picture ?>' required /></td>
+                    <div class="input-group image" id="image"><input type='text' name='user[picture]' value='<?php echo $al_fetch_users->picture ?>' id='<?php echo md5('user[picture]'); ?>' required /><span class="input-group-addon image-addon" onclick="return popup('index.php?page=Media&action=media_select&field_id=<?php echo md5('user[picture]'); ?>', 'Choose a Media', '1400', '600')"><span class="glyphicon glyphicon-picture"></span></span></div></td>
                 </tr>
 				<?php foreach($form['users'] as $rows => $data){ ?>
                     <?php if ($rows != 'username' && $rows != 'email' && $rows != 'age' && $rows != 'about' && $rows != 'picture'){ ?>

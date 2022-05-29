@@ -76,6 +76,16 @@ class Form extends Standard {
 		return $container;
 	}
 	
+	public function image($name, $value, $sent_data, $module, $required) {
+		$container = [];
+		$label_required = ($required == 'required') ? '* ' : '';
+		$container['label'] = $label_required.constant(strtoupper($name));
+		$value = !empty($sent_data) ? $sent_data : '';
+		
+		$container['control'] = '<div class="input-group image" id="image"><input type="text" value="'.$value.'" size="30" id="'.md5($module.'['.$name.']').'" name="'.$module.'['.$name.']" class="form-control" '.$required.' /><span class="input-group-addon image-addon" onclick="return popup(\'index.php?page=Media&action=media_select&field_id='.md5($module.'['.$name.']').'\', \'Choose a Media\', \'1400\', \'600\')"><span class="glyphicon glyphicon-image"></span></span></div>';
+		return $container;
+	}
+	
 	public function time($name, $value, $sent_data, $module, $required) {
 		$container = [];
 		$label_required = ($required == 'required') ? '* ' : '';

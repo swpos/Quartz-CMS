@@ -48,7 +48,7 @@
 		</email>
 		<picture>
 			<params>
-				<type>input</type>
+				<type>image</type>
 				<validation></validation>
 				<required>required</required>
 			</params>

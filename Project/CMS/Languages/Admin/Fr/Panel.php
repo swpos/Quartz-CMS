@@ -11,6 +11,6 @@ define('CONTROL_PANEL_PLUGINS', 'Plugins');
 define('CONTROL_PANEL_MEDIAS', 'Médias');
 define('CONTROL_PANE_LOGOUT', 'Déconnexion');
 // Do not change this next line
-define('CONTROL_PANEL_CREDIT', 'Version 3.8.3 Beta - Quartz CMS');
+define('CONTROL_PANEL_CREDIT', 'Version 3.8.4 Beta - Quartz CMS');
 
 ?>

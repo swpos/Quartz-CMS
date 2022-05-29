@@ -93,7 +93,8 @@ textarea.form-control {
 }
 
 .time-addon,
-.date-addon {
+.date-addon,
+.image-addon {
 	padding: 0px 8px;
 }
 
