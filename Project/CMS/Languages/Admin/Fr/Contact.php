@@ -44,7 +44,6 @@ define('SHOW_CONTACT_ID', 'Id');
 define('CONTACTS', 'Contacts');
 define('SHOW_FIRST_NAME', 'Voir le Prénom');
 define('SHOW_LAST_NAME', 'Voir le Nom');
-define('SHOW_EMAIL', 'Voir le Courriel');
 define('SHOW_PHONE', 'Voir le Téléphone');
 define('SHOW_POSTAL_CODE', 'Voir le Code Postal');
 define('SHOW_CITY', 'Voir la Ville');
@@ -58,7 +57,6 @@ define('SHOW_CONTENT', 'Voir la Description');
 
 define('FIRST_NAME', 'Prénom');
 define('LAST_NAME', 'Nom');
-define('EMAIL', 'Courriel');
 define('PHONE', 'Téléphone');
 define('POSTAL_CODE', 'Code postal');
 define('CITY', 'Ville');
