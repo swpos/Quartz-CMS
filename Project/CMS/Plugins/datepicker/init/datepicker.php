@@ -2,11 +2,13 @@
 	$(document).ready(function () {
 		if($('#date').length > 0){
 			$('#date').datetimepicker({
-				format: 'YYYY-MM-DD'
+				format: 'Y-m-d',
+				timepicker:false
 			});
 			
 			$('#time').datetimepicker({
-				 format: 'LT'
+				 format: 'H:i:s',
+				 datepicker:false
 			});
 		}
 	});

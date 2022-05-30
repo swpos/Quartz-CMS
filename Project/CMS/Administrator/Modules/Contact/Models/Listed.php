@@ -56,7 +56,7 @@ class Listed extends ModuleExtended {
 					$buildQuery = $this->v->_s('order_contact_query');
 				}
 			}
-			$total = count($this->data->getData($this->db->query("SELECT * FROM cms_contact " . $buildQuery)));
+			$total = count((Array) $this->data->getData($this->db->query("SELECT * FROM cms_contact " . $buildQuery)));
 			$al_fetch_contacts = $this->data->getData($this->db->query("SELECT * FROM cms_contact " . $buildQuery . " " . $this->system_pagination->get_pagination($total)));
 			$al_fetch_contacts = empty($al_fetch_contacts) ? [] : $al_fetch_contacts;
 			return ['rows' => $al_fetch_contacts, 'total' => $total];

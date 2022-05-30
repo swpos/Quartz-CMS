@@ -44,7 +44,6 @@ define('SHOW_CONTACT_ID', 'Id');
 define('CONTACTS', 'Contacts');
 define('SHOW_FIRST_NAME', 'Show First name');
 define('SHOW_LAST_NAME', 'Show Last name');
-define('SHOW_EMAIL', 'Show Email');
 define('SHOW_PHONE', 'Show Phone');
 define('SHOW_POSTAL_CODE', 'Show Postal code');
 define('SHOW_CITY', 'Show City');
@@ -58,7 +57,6 @@ define('SHOW_CONTENT', 'Show Description');
 
 define('FIRST_NAME', 'First name');
 define('LAST_NAME', 'Last name');
-define('EMAIL', 'Email');
 define('PHONE', 'Phone');
 define('POSTAL_CODE', 'Postal code');
 define('CITY', 'City');
