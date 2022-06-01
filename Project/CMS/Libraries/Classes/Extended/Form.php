@@ -92,7 +92,7 @@ class Form extends Standard {
 		$container['label'] = $label_required.constant(strtoupper($name));
 		$value = !empty($sent_data) ? $sent_data : '';
 		
-		$container['control'] = '<div class="input-group date" id="time"><input type="text" value="'.$value.'" size="30" name="'.$module.'['.$name.']" class="form-control" '.$required.' /><span class="input-group-addon time-addon"><span class="glyphicon glyphicon-time"></span></span></div>';
+		$container['control'] = '<div class="input-group date"><input type="text" value="'.$value.'" size="30" id="time" name="'.$module.'['.$name.']" class="form-control" '.$required.' /><span class="input-group-addon time-addon"><span class="glyphicon glyphicon-time"></span></span></div>';
 		return $container;
 	}
 	
@@ -102,7 +102,7 @@ class Form extends Standard {
 		$container['label'] = $label_required.constant(strtoupper($name));
 		$value = !empty($sent_data) ? $sent_data : '';
 		
-		$container['control'] = '<div class="input-group date" id="date"><input type="text" value="'.$value.'" size="30" name="'.$module.'['.$name.']" class="form-control" '.$required.' /><span class="input-group-addon date-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>';
+		$container['control'] = '<div class="input-group date"><input type="text" value="'.$value.'" size="30" id="date" name="'.$module.'['.$name.']" class="form-control" '.$required.' /><span class="input-group-addon date-addon"><span class="glyphicon glyphicon-calendar"></span></span></div>';
 		return $container;
 	}
 	

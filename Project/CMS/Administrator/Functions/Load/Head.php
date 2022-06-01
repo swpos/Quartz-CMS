@@ -22,8 +22,8 @@ class Head {
 		$script = array();
 		$plugins = $this->available_plugins();
 		foreach($plugins as $key => $value) {
-			if(file_exists('../Plugins/'.strtolower($value).'/script/'.strtolower($value).'.php')){
-				$script[] = '../Plugins/'.strtolower($value).'/script/'.strtolower($value).'.php';
+			if(file_exists('../Plugins/'.strtolower($value).'/script/head/'.strtolower($value).'.php')){
+				$script[] = '../Plugins/'.strtolower($value).'/script/head/'.strtolower($value).'.php';
 			}
 		}
 		
@@ -34,8 +34,8 @@ class Head {
 		$init = array();
 		$plugins = $this->available_plugins();
 		foreach($plugins as $key => $value) {
-			if(file_exists('../Plugins/'.strtolower($value).'/init/'.strtolower($value).'.php')){
-				$init[] = '../Plugins/'.strtolower($value).'/init/'.strtolower($value).'.php';
+			if(file_exists('../Plugins/'.strtolower($value).'/init/head/'.strtolower($value).'.php')){
+				$init[] = '../Plugins/'.strtolower($value).'/init/head/'.strtolower($value).'.php';
 			}
 		}
 		

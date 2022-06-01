@@ -123,7 +123,8 @@ INSERT INTO `<?php echo $hash ?>_plugins` (`title`, `date`, `time`, `default_sho
 ('Chosen',	'0000-00-00',	'00:00:00',	'',	'chosen',	1, '<?php echo $username ?>'),
 ('DataTable',	'0000-00-00',	'00:00:00',	'',	'datatable',	1, '<?php echo $username ?>'),
 ('CKeditor',	'0000-00-00',	'00:00:00',	'',	'ckeditor',	1, '<?php echo $username ?>'),
-('DatePicker',	'0000-00-00',	'00:00:00',	'',	'datepicker',	1, '<?php echo $username ?>');
+('DatePicker',	'0000-00-00',	'00:00:00',	'',	'datepicker',	1, '<?php echo $username ?>'),
+('FieldImage',	'0000-00-00',	'00:00:00',	'',	'fieldimage',	1, '<?php echo $username ?>');
 
 CREATE TABLE `<?php echo $hash ?>_section_name` (
   `id` int(11) NOT NULL AUTO_INCREMENT,

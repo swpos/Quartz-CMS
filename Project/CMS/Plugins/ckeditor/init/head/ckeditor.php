@@ -1,5 +1,5 @@
 <?php
-	if(in_array('ckeditor', $plugins) && $editor == 'ckeditor') {
+	if(in_array('ckeditor', $head_plugins) && $editor == 'ckeditor') {
 ?>
 	<script type="text/javascript">
         $(document).ready(function() {
@@ -33,5 +33,39 @@
         });
     </script>
 <?php	
+		if($action == 'media_browse' && $page == 'Media'){
+?>
+			<script>
+				// Helper function to get parameters from the query string.
+				function getUrlParam( paramName ) {
+					var reParam = new RegExp( '(?:[\?&]|&)' + paramName + '=([^&]+)', 'i' );
+					var match = window.location.search.match( reParam );
+
+					return ( match && match.length > 1 ) ? match[1] : null;
+				}
+				// Simulate user action of selecting a file to be returned to CKEditor.
+				function returnFileUrl(fileUrl) {
+
+					var funcNum = getUrlParam( 'CKEditorFuncNum' );
+					window.opener.CKEDITOR.tools.callFunction( funcNum, fileUrl, function() {
+						// Get the reference to a dialog window.
+						var dialog = this.getDialog();
+						// Check if this is the Image Properties dialog window.
+						if ( dialog.getName() == 'image' ) {
+							// Get the reference to a text field that stores the "alt" attribute.
+							var element = dialog.getContentElement( 'info', 'txtAlt' );
+							// Assign the new value.
+							if ( element )
+								element.setValue( 'alt text' );
+						}
+						// Return "false" to stop further execution. In such case CKEditor will ignore the second argument ("fileUrl")
+						// and the "onSelect" function assigned to the button that called the file manager (if defined).
+						// return false;
+					} );
+					window.close();
+				}
+			</script>
+<?php
+		}
 	}
 ?>
