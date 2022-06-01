@@ -46,7 +46,7 @@ class Listed extends ModuleExtended {
 				}
 			}
 			
-			$total = count($this->data->getData($this->db->query("SELECT * FROM " . HASH . "_modules " . $buildQuery)));
+			$total = count((Array) $this->data->getData($this->db->query("SELECT * FROM " . HASH . "_modules " . $buildQuery)));
 			$al_fetch_galleries = $this->data->getData($this->db->query("SELECT * FROM " . HASH . "_modules " . $buildQuery . " " . $this->system_pagination->get_pagination($total)));
 			$al_fetch_galleries = empty($al_fetch_galleries) ? [] : $al_fetch_galleries;
 			return ['rows' => $al_fetch_galleries, 'total' => $total];

@@ -22,5 +22,6 @@
         }
         $_SESSION['error_message'] = '';
         ?>
+		<?php echo eval( '?> '.$body.' <?php ' ); ?>
     </body>
 </html>

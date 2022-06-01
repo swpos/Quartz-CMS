@@ -16,18 +16,34 @@ class Template {
 
     public function render() {
 		include('../config.php');
+		$page = isset($_GET['page']) ? $_GET['page'] : "index";        
+		$action = isset($_GET['action']) ? $_GET['action'] : "index"; 
 		$header = new \CMS\Administrator\Functions\Load\Head($this->modules, $this->container);
-		$plugins = $header->available_plugins();
-		$scripts = $header->render_scripts();
-		$inits = $header->render_init();
+		$head_plugins = $header->available_plugins();
+		$head_scripts = $header->render_scripts();
+		$head_inits = $header->render_init();
 		$head = '';
 		
-		foreach($scripts as $script){
+		foreach($head_scripts as $script){
 			$head .= file_get_contents($script);
 		}
 		
-		foreach($inits as $init){
+		foreach($head_inits as $init){
 			$head .= file_get_contents($init);
+		}
+		
+		$footer = new \CMS\Administrator\Functions\Load\Body($this->modules, $this->container);
+		$body_plugins = $footer->available_plugins();
+		$body_scripts = $footer->render_scripts();
+		$body_inits = $footer->render_init();
+		$body = '';
+		
+		foreach($body_scripts as $script){
+			$body .= file_get_contents($script);
+		}
+		
+		foreach($body_inits as $init){
+			$body .= file_get_contents($init);
 		}
 		
         $al_info_admin = $this->modules;
