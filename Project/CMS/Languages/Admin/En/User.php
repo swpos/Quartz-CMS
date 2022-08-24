@@ -39,4 +39,17 @@ define('SHOW_PICTURE', 'Show picture');
 define('USER', 'User');
 define('NOT_A_VALID_PICTURE', 'The picture does not exist.');
 
+define('ADD_ROLE', 'ADD ROLE');
+define('UPDATE_ROLE', 'UPDATE ROLE');
+
+define('NOTES', 'Notes');
+define('LIST_MAIN_ROLE', 'Role');
+define('LIST_MAIN_ROLE_NOTES', 'Notes');
+
+define('LIST_MAIN_ROLE_UPDATE_SEE_PROFILE', 'Update/See role');
+
+define('LIST_ROLE', 'ROLES');
+define('LIST_ROLES_ROLE_SEARCH', 'Role');
+define('LIST_ROLES_ROLE', 'Role Order');
+
 ?>

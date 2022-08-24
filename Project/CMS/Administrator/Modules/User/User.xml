@@ -55,18 +55,15 @@
 			<value>
 			</value>
 		</picture>
-		<level>
+		<role>
 			<params>
-				<type>select</type>
+				<type>role</type>
 				<validation></validation>
 				<required></required>
 			</params>
 			<value>
-				<administrators>1</administrators>
-				<moderators>2</moderators>
-				<members>3</members>
 			</value>
-		</level>
+		</role>
 		<gender>
 			<params>
 				<type>select</type>
@@ -160,6 +157,35 @@
 			</value>
 		</blocked>
 	</users>
+	<roles>
+		<id>
+			<params>
+				<type>show</type>
+				<validation></validation>
+				<required></required>
+			</params>
+			<value>
+			</value>
+		</id>
+		<role>
+			<params>
+				<type>input</type>
+				<validation></validation>
+				<required>required</required>
+			</params>
+			<value>
+			</value>
+		</role>
+		<notes>
+			<params>
+				<type>textarea</type>
+				<validation></validation>
+				<required>required</required>
+			</params>
+			<value>
+			</value>
+		</notes>
+	</roles>
 	<modules>
 		<id>
 			<params>

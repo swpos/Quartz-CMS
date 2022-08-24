@@ -175,8 +175,19 @@ CREATE TABLE `<?php echo $hash ?>_users` (
   UNIQUE KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-INSERT INTO `<?php echo $hash ?>_users` (`id`, `idm`, `username`, `password`, `email`, `picture`, `level`, `gender`, `ip`, `city`, `first_name`, `last_name`, `age`, `about`, `articles`, `country`, `blocked`) VALUES
-(1,	'0',	'<?php echo $username ?>',	'<?php echo $password ?>',	'<?php echo $email ?>',	'000.jpg',	'1',	'male',	'255.255.255.255',	'-',	'-',	'-',	'0',	'<p>-</p>\r\n',	'0',	'-',	'0');
+INSERT INTO `<?php echo $hash ?>_users` (`id`, `idm`, `username`, `password`, `email`, `role`, `picture`, `level`, `gender`, `ip`, `city`, `first_name`, `last_name`, `age`, `about`, `articles`, `country`, `blocked`) VALUES
+(1,	'0',	'<?php echo $username ?>',	'<?php echo $password ?>',	'<?php echo $email ?>', 1, 	'000.jpg',	'1',	'male',	'255.255.255.255',	'-',	'-',	'-',	'0',	'<p>-</p>\r\n',	'0',	'-',	'0');
+
+CREATE TABLE `<?php echo $hash ?>_roles` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `role` varchar(255) NOT NULL,
+  `notes` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+INSERT INTO `<?php echo $hash ?>_roles` (`id`, `role`, `notes`) VALUES
+(1,	'Administrator',	'<p>Administrators can access all features</p>\r\n'),
+(2,	'Moderator',	'<p>Moderator that can moderate the content.</p>\r\n');
 
 CREATE TABLE `cms_comments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,

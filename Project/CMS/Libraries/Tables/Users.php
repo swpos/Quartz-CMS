@@ -53,8 +53,8 @@ class Users {
 		return $this->do_functions($value, $functions);
 	}
 	
-	public function level($value, $functions) {
-		return $this->do_functions('1', $functions);
+	public function role($value, $functions) {
+		return $this->do_functions($value, $functions);
 	}
 	
 	public function gender($value, $functions) {

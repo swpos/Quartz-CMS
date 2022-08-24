@@ -39,5 +39,17 @@ define('SHOW_PICTURE', 'Afficher l\'image');
 define('USER', 'Utilisateur');
 define('NOT_A_VALID_PICTURE', 'L\'image n\'existe pas.');
 
+define('ADD_ROLE', 'AJOUTER UN RÔLE');
+define('UPDATE_ROLE', 'METTRE À JOUR UN RÔLE');
+
+define('NOTES', 'Notes');
+define('LIST_MAIN_ROLE', 'Rôle');
+define('LIST_MAIN_ROLE_NOTES', 'Notes');
+
+define('LIST_MAIN_ROLE_UPDATE_SEE_PROFILE', 'Mettre à jour/Voir le role');
+
+define('LIST_ROLE', 'RÔLES');
+define('LIST_ROLES_ROLE_SEARCH', 'Rôle');
+define('LIST_ROLES_ROLE', 'Ordre du rôle');
 
 ?>

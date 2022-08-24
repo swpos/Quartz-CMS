@@ -60,6 +60,16 @@
 		fwrite($al_fp, '$session_time = "none"; '."\n");
 		fwrite($al_fp, '$session_path = "none"; '."\n");
 		fwrite($al_fp, '$timezone = "America/New_York"; '."\n");
+		fwrite($al_fp, '$mailer_type = "mail"; '."\n");
+		fwrite($al_fp, '$mailer_host = ""; '."\n");
+		fwrite($al_fp, '$mailer_auth = ""; '."\n");
+		fwrite($al_fp, '$mailer_username = ""; '."\n");
+		fwrite($al_fp, '$mailer_password = ""; '."\n");
+		fwrite($al_fp, '$mailer_from = ""; '."\n");
+		fwrite($al_fp, '$mailer_html = ""; '."\n");
+		fwrite($al_fp, '$mailer_secure = ""; '."\n");
+		fwrite($al_fp, '$mailer_port = ""; '."\n");
+		
 		fwrite($al_fp, '?>');
 		fclose($al_fp);
 		

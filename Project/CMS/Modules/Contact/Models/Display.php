@@ -29,12 +29,13 @@ class Display extends ModuleExtended {
 				$this->db->createQueryBuilder()
 				->select('*')
 				->from(HASH.'_users')
-				->where('id = ?')
-				->setParameter(0, '1')
+				->where('role = ?')
+				->setParameter(0, $array['role'])
 				->execute()
 			);
 			
-		$al_fetch_contact = empty($al_fetch_contact) ? [] : $al_fetch_contact;
+		$al_fetch_contact = count($al_fetch_contact) == 1 ? array($al_fetch_contact) : $al_fetch_contact;
+		$al_fetch_contact = empty($al_fetch_contact) ? array() : $al_fetch_contact;
 		return $al_fetch_contact;
     }
 	
