@@ -1,7 +1,7 @@
 # IMPORTANT: branch-v2.0 is legacy and no longer maintained
 Please note that this branch is no longer maintained.
 We keep this branch separate and under its original name by the original developer for historical purposes.
-Please do not use it anymore and switch to the versions provided in the master branch.
+# Please do not use it anymore and switch to the versions provided in the master branch.
 Thank you.
 
 Quartz-CMS
