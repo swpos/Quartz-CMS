@@ -1,5 +1,8 @@
-# Quartz-CMS
+# spopiel-CMS
 Content Managing System
+
+As this repository was taken over and is now under new management, we have adjusted its project name accordingly.
+
 
 <p>Step 1</p>
 
