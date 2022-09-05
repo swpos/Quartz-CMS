@@ -4,7 +4,13 @@
             "name": "Alexandre Lefebvre",
             "email": "quartzcms@gmail.com",
             "homepage": "https://www.quartzcms.ca",
-            "role": "Developer"
+            "role": "Original main Developer"
+        },
+	{
+            "name": "Seen Popiel",
+            "email": "swen.popiel@popiel.ch",
+            "homepage": "https://www.spopielcms.com",
+            "role": "Current main Developer"
         }
     ],
     
