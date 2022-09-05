@@ -16,9 +16,21 @@ class Edit extends ModuleExtended {
 		}
     }
 	
+	public function roleUpdate($array = []) {
+		if(count($array) > 0){
+			$this->data->updateDatabase($array['data'], $array['where'],  HASH.'_roles');
+		}
+    }
+	
 	public function addUser($array = []) {
 		if(count($array) > 0){
 			$this->data->insertIntoDatabase($array, HASH."_users");
+		}
+    }
+	
+	public function addRole($array = []) {
+		if(count($array) > 0){
+			$this->data->insertIntoDatabase($array, HASH."_roles");
 		}
     }
 	
@@ -39,9 +51,32 @@ class Edit extends ModuleExtended {
 		}
 	}
 	
+	public function getRoleById($array = []) {
+		if(count($array) > 0){
+			$al_fetch_roles = 
+				$this->data->getData(
+					$this->db->createQueryBuilder()
+					->select('*')
+					->from(HASH.'_roles')
+					->where('id = ?')
+					->setParameter(0, $array['id'])
+					->execute()
+				);
+				
+			$al_fetch_roles = empty($al_fetch_roles) ? [] : $al_fetch_roles;
+			return $al_fetch_roles;
+		}
+	}
+	
 	public function deleteUser($array = []) {
 		if(count($array) > 0){
 			$this->data->deleteEntry($array, HASH.'_users');
+		}
+    }
+	
+	public function deleteRole($array = []) {
+		if(count($array) > 0){
+			$this->data->deleteEntry($array, HASH.'_roles');
 		}
     }
 }

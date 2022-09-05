@@ -18,7 +18,7 @@ class Contact extends ModuleExtended {
 		
 		$info = [
 			'data'=> [
-				'send_email_admin' => $post['send_email_admin'],
+				'send_email_admin' => $post['role'],
 				'send_complete_mail' => $post['send_complete_email'],
 				'users' => trim($post['email_user'])
 			],
@@ -34,6 +34,9 @@ class Contact extends ModuleExtended {
 		
 		$listed = $this->system_model->init("Contact", "Listed");
 		$contact_config = $listed->getContactConfig([]);
+		
+		$roles = $this->system_model->init("User", "Listed");
+		$roles = $roles->getRoles();
 		
 		$info = [
 			'al_email_search' => $post['email_search_contact'],
@@ -52,6 +55,7 @@ class Contact extends ModuleExtended {
         $this->system_view->init('Contact', 'ContactList');
         $this->system_view->assign('al_fetch_contacts', $contacts['rows']);
         $this->system_view->assign('al_fetch_contact_config', $contact_config);
+		$this->system_view->assign('roles', $roles);
         $this->system_view->assign('al_init_contact_rows', $contacts['total']);
         return $this->system_view->render();
     }

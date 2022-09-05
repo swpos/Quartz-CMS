@@ -137,6 +137,8 @@ class Config extends Standard {
 					  <ul class="dropdown-menu" role="menu">
 						<li><a href="index.php?page=User&action=user_listed">'. MENU_TOP_USERS .'</a></li>
 						<li><a href="index.php?page=User&action=user_add_user">'. MENU_TOP_USERS_ADD_USER .'</a></li>
+						<li><a href="index.php?page=User&action=role_listed">'. MENU_TOP_ROLES .'</a></li>
+						<li><a href="index.php?page=User&action=role_add_role">'. MENU_TOP_ROLES_ADD_ROLE .'</a></li>
 					  </ul>
 					</li>
 					<li class="dropdown">

@@ -58,17 +58,19 @@ class Contact extends ModuleExtended {
 				MESSAGE : " . $form['contact']['content'];
             }
 
-            if ($al_send_email_admin == 'yes') {
-				$contact = $display->post_contact_select2([]);
-                $al_email_webmaster = $contact->email;
-                $subject = 'Contact Form - ' . $this->system_config->loadvariable();
-                $message = 'A message from the contact form on the website. Here is the content : <br />' . $al_content_message;
-                $headers = 'From: ' . $form['contact']['email'] . "\r\n" .
-                        'Reply-To: ' . $form['contact']['email'] . "\r\n" .
-                        'MIME-Version: 1.0' . "\r\n" .
-						'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+            if ($al_send_email_admin != '0') {
+				$contact = $display->post_contact_select2(['role' => $al_send_email_admin]);
+				foreach($contact as $key => $value){
+					$al_email_webmaster = $value->email;
+					$subject = 'Contact Form - ' . $this->system_config->loadvariable();
+					$message = 'A message from the contact form on the website. Here is the content : <br />' . $al_content_message;
+					$headers = 'From: ' . $form['contact']['email'] . "\r\n" .
+							'Reply-To: ' . $form['contact']['email'] . "\r\n" .
+							'MIME-Version: 1.0' . "\r\n" .
+							'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-                $this->system_config->mailer($al_email_webmaster, $subject, $message, $headers);
+					$this->system_config->mailer($al_email_webmaster, $subject, $message, $headers);
+				}
             } else {
                 $subject = 'Contact Form - ' . $this->system_config->loadvariable();
                 $message = 'A message from the contact form on the website. Here is the content : <br />' . $al_content_message;

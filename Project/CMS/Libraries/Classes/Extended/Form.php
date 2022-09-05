@@ -221,6 +221,38 @@ class Form extends Standard {
 	}
 	
 	
+	public function role($name, $values, $sent_data, $module, $required) {
+		$roles = 
+			$this->data->getData(
+				$this->db->createQueryBuilder()
+				->select('*')
+				->from(HASH.'_roles')
+				->execute()
+			);
+					
+		$container = [];
+		$build = [];
+		$label_required = ($required == 'required') ? '* ' : '';
+		$container['label'] = $label_required.constant(strtoupper($name));
+		$build[] = '<select name="'.$module.'['.$name.']" class="chosen-select form-control" '.$required.'><option value="0">-- Select --</option>';
+		foreach((is_array($roles) ? $roles : [$roles]) as $key => $value) {
+			$build[] = '<option value="'.$value->id.'"';
+			
+
+			if(!empty($sent_data)){
+				if($sent_data == $value->id) {
+					$build[] = ' selected="selected" ';
+				}
+			}
+			
+			$build[] = '>'.$value->role.'</option>';
+		}
+		$build[] = "</select>";
+		$container['control'] = implode('', $build);
+		
+		return $container;
+	}
+	
 	public function position($name, $values, $sent_data, $module, $required) {
 		$al_fetch_template = 
 			$this->data->getData(

@@ -34,6 +34,25 @@ class User extends ModuleExtended {
         $this->system_view->assign('al_init_users_rows', $users['total']);
         return $this->system_view->render();
     }
+	
+	public function role_listed() {	
+		$get = $this->v->_gA();
+		$post = $this->v->_pA(['search_role', 'role_roles', 'post_order_role']);
+		
+		$info = [
+			'al_search' => $post['search_role'],
+			'role_roles' => $post['role_roles'],
+			'al_post_order' => $post['post_order_role']
+		];		
+		
+		$listed = $this->system_model->init("User", "Listed");
+		$roles = $listed->rolesList($info);
+
+        $this->system_view->init('User', 'RoleList');
+        $this->system_view->assign('al_fetch_roles', $roles['rows']);
+        $this->system_view->assign('al_init_roles_rows', $roles['total']);
+        return $this->system_view->render();
+    }
 
     public function user_edit_update() {
 		$get = $this->v->_gA();
@@ -42,9 +61,9 @@ class User extends ModuleExtended {
 
 		if (!empty($post['user']['id'])) {
 			if (!empty($post['user']['password'])) {
-				$form = $this->system_form->init('user', ['users' => ['username','password','email','picture','gender','city','first_name','last_name','age','about','country']], 'send', $post);
+				$form = $this->system_form->init('user', ['users' => ['username','password','email','role','picture','gender','city','first_name','last_name','age','about','country']], 'send', $post);
 			} else {
-				$form = $this->system_form->init('user', ['users' => ['username','email','picture','gender','city','first_name','last_name','age','about','country']], 'send', $post);
+				$form = $this->system_form->init('user', ['users' => ['username','email','role','picture','gender','city','first_name','last_name','age','about','country']], 'send', $post);
 			}
 			$info = [
 				'data' => $form['users'], 
@@ -53,14 +72,40 @@ class User extends ModuleExtended {
 
 			$edit->userUpdate($info);
 		} else {
-			$form = $this->system_form->init('user', ['users' => ['username','password','email','picture','gender','city','first_name','last_name','age','about','country']], 'send', $post);
+			$form = $this->system_form->init('user', ['users' => ['username','password','email','role','picture','gender','city','first_name','last_name','age','about','country']], 'send', $post);
 			$edit->addUser($form['users']);
+		}
+    }
+	
+	public function role_edit_update() {
+		$get = $this->v->_gA();
+		$post = $this->v->_pA();
+		$edit = $this->system_model->init("User", "Edit");
+
+		if (!empty($post['user']['id'])) {
+			$form = $this->system_form->init('user', ['roles' => ['role','notes']], 'send', $post);
+			$info = [
+				'data' => $form['roles'], 
+				'where' => ['id' => $post['user']['id']]
+			];
+
+			$edit->roleUpdate($info);
+		} else {
+			$form = $this->system_form->init('user', ['roles' => ['role','notes']], 'send', $post);
+			$edit->addRole($form['roles']);
 		}
     }
 
     public function user_add_user() {
-		$form = $this->system_form->init('user', ['users' => ['username','first_name','last_name','password','email','picture','gender','city','age','about','country']], 'form', []);
+		$form = $this->system_form->init('user', ['users' => ['username','first_name','last_name','password','email','role','picture','gender','city','age','about','country']], 'form', []);
         $this->system_view->init('User', 'AddUser');
+        $this->system_view->assign('form', $form);
+        return $this->system_view->render();
+    }
+	
+	public function role_add_role() {
+		$form = $this->system_form->init('user', ['roles' => ['role','notes']], 'form', []);
+        $this->system_view->init('User', 'AddRole');
         $this->system_view->assign('form', $form);
         return $this->system_view->render();
     }
@@ -71,10 +116,24 @@ class User extends ModuleExtended {
 		
 		$edit = $this->system_model->init("User", "Edit");
 		$users = $edit->getUserById(['id' => $get['id']]);
-		$form = $this->system_form->init('user', ['users' => ['username','first_name','last_name','password','email','picture','gender','city','age','about','country','id']], 'form', ['users' => $users]);
+		$form = $this->system_form->init('user', ['users' => ['username','first_name','last_name','password','email','role','picture','gender','city','age','about','country','id']], 'form', ['users' => $users]);
 		
 		$this->system_view->init('User', 'ModifUser');
         $this->system_view->assign('al_fetch_users', $users);
+        $this->system_view->assign('form', $form);
+        return $this->system_view->render();
+    }
+
+	public function role_edit() {
+		$get = $this->v->_gA();
+		$post = $this->v->_pA();
+		
+		$edit = $this->system_model->init("User", "Edit");
+		$roles = $edit->getRoleById(['id' => $get['id']]);
+		$form = $this->system_form->init('user', ['roles' => ['role','notes','id']], 'form', ['roles' => $roles]);
+		
+		$this->system_view->init('User', 'ModifRole');
+        $this->system_view->assign('al_fetch_roles', $roles);
         $this->system_view->assign('form', $form);
         return $this->system_view->render();
     }
@@ -88,6 +147,19 @@ class User extends ModuleExtended {
         foreach ($post['delete'] as $key => $value) {
             if ($value != '1') {
 				$edit->deleteUser(['id' => $value]);                
+            }
+        }
+    }
+	
+	public function role_delete() {
+		$get = $this->v->_gA();
+		$post = $this->v->_pA();
+
+		$edit = $this->system_model->init("User", "Edit");
+
+        foreach ($post['delete'] as $key => $value) {
+            if ($value != '1') {
+				$edit->deleteRole(['id' => $value]);                
             }
         }
     }

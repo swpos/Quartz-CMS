@@ -64,6 +64,42 @@ class Listed extends ModuleExtended {
 		}
     }
 	
+	public function rolesList($array = []) {
+		if(count($array) > 0){
+			$buildQuery = "";
+			if (!empty($array['al_search'])) {
+				$order = "WHERE";
+				$order1 = [];
+				if (!empty($array['al_search'])) {
+					$order1[]=" role LIKE '%" . $this->v->e($array['al_search']) . "%'";
+				}
+				$buildQuery.=$order . implode(" AND ", $order1);
+			}
+	
+			if (!empty($array['role_roles'])) {
+				$order = " ORDER BY";
+				$order2 = [];
+				if (!empty($array['role_roles'])) {
+					$order2[]=" role " . $array['role_roles'];
+				}
+				$buildQuery.=$order . implode(", ", $order2);
+			}
+	
+			if (!empty($this->v->_p('post_order_role'))) {
+				$_SESSION['order_role_query'] = $buildQuery;
+			} else {
+				if(!empty($this->v->_s('order_role_query'))){
+					$buildQuery = $this->v->_s('order_role_query');
+				}
+			}
+			
+			$total = count($this->data->getData($this->db->query("SELECT * FROM " . HASH . "_roles " . $buildQuery)));
+			$al_fetch_roles = $this->data->getData($this->db->query("SELECT * FROM " . HASH . "_roles " . $buildQuery . " " . $this->system_pagination->get_pagination($total)));
+			$al_fetch_roles = empty($al_fetch_roles) ? [] : $al_fetch_roles;
+			return ['rows' => $al_fetch_roles, 'total' => $total];
+		}
+    }
+	
 	public function countUsers($array = []) {
 		$al_fetch_users = 
 			$this->data->getData(
@@ -76,6 +112,33 @@ class Listed extends ModuleExtended {
         $al_init_users_rows = count((array) $al_fetch_users);
 		$al_init_users_rows = empty($al_init_users_rows) ? "" : $al_init_users_rows;
 		return $al_init_users_rows;
+	}
+	
+	public function countRoles($array = []) {
+		$al_fetch_roles = 
+			$this->data->getData(
+				$this->db->createQueryBuilder()
+				->select('*')
+				->from(HASH.'_roles')
+				->execute()
+			);
+			
+        $al_init_roles_rows = count((array) $al_fetch_roles);
+		$al_init_roles_rows = empty($al_init_roles_rows) ? "" : $al_init_roles_rows;
+		return $al_init_roles_rows;
+	}
+	
+	public function getRoles($array = []) {
+		$al_fetch_roles = 
+			$this->data->getData(
+				$this->db->createQueryBuilder()
+				->select('*')
+				->from(HASH.'_roles')
+				->execute()
+			);
+			
+		$al_fetch_roles = empty($al_fetch_roles) ? array() : $al_fetch_roles;
+		return $al_fetch_roles;
 	}
 }
 

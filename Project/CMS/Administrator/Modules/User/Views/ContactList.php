@@ -6,12 +6,14 @@
 	<div class='row'>
 		<div class='col-md-4'>
 			<?php echo LIST_CONTACT_SEND_EMAIL_TO_ADMIN ?><br /> 
-			<select name="role" class="chosen-select form-control">
-				<option value="0">-- Select --</option>
-				<?php foreach($roles as $key => $value){ ?>
-					<option <?php if(intval($al_fetch_contact_config->send_email_admin) == $roles[$key]->id){ echo "selected=\"selected\""; } ?> value="<?php echo $roles[$key]->id; ?>"><?php echo $roles[$key]->role; ?></option>
+			<table>
+				<?php foreach($form['users'] as $rows => $data){ ?>
+					<tr>
+						<td width="20%"><?php echo $form['users'][$rows]['label']; ?></td>
+						<td><?php echo $form['users'][$rows]['control']; ?></td>
+					</tr>
 				<?php } ?>
-			</select>
+			</table>
 		</div> 
 		<div class='col-md-4'>
 			<?php echo LIST_CONTACT_SEND_COMPLETE_EMAIL ?><br /> 
